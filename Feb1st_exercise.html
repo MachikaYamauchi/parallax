@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Document</title>
+
+
+</head>
+<body>
+
+
+    <header  id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid p-0">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="header_img">
+            <h1>JAPAN</h1>
+        </div>
+    </header>
+
+    <div class="spring">
+        <div class="bgextend extend">
+            <span class="bgappear">Spring</span>
+        </div>
+    
+        <div class="box fadeInUpTrigger"></div>
+
+    </div>
+
+    <div class="summer">
+        <h1>winter</h1>
+        <div class="flex">
+            <div class="box2">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            </div>
+            <div class="box2 delay-time02">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </div>
+            <div class="box2 delay-time04">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    $(document).ready(function(){
+        $(window).scroll(function(){
+            var scroll = $(window).scrollTop();
+            $("#header_img").css({
+                transform: 'scale(' + (100 + scroll/10)/100+ ')',
+                top:-(scroll/50)+ "%",
+            });
+            fadeAnime();
+            $(".flex").css("background-position-y", $(this).scrollTop()*0.7);
+        });
+    });
+
+    let fadeAnime = () => {
+        $(".fadeInUpTrigger").each(function(){
+            var elemPos = $(this).offset().top-50;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll >= elemPos-windowHeight) {
+                $(this).addClass('fadeIn');
+            } else {
+                $(this).removeClass('fadeIn');
+            }
+        });
+
+        $(".fadeInDownTrigger").each(function(){
+            var elemPos = $(this).offset().top-50;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll >= elemPos-windowHeight){
+                $(this).addClass('fadeDown');
+            } else {
+                $(this).removeClass('fadeDown');
+            }
+
+        });
+
+        $(".extend").each(function(){
+            var elemPos = $(this).offset().top-50;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll >= elemPos-windowHeight){
+                $(this).addClass('bgLRextend');
+            } else {
+                $(this).removeClass('bgLRextend');
+            }
+        })
+
+        $(".box2").each(function(){
+            var elemPos = $(this).offset().top-50;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll >= elemPos-windowHeight) {
+                $(this).addClass('fadeUp');
+            } else {
+                $(this).removeClass('fadeUp');
+            }
+        })
+    }
+
+</script>
+
+
+
+</html>
